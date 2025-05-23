@@ -27,3 +27,19 @@ class BookResponse(BaseModel):
 
     class Config:
         orm_mode = True
+
+from typing import Optional
+
+class BorrowCreate(BaseModel):
+    user_id: int
+    book_id: int
+
+class BorrowResponse(BaseModel):
+    id: int
+    user_id: int
+    book_id: int
+    borrow_date: datetime
+    return_date: Optional[datetime] = None
+
+    class Config:
+        orm_mode = True
